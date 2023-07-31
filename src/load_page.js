@@ -28,7 +28,7 @@ function loadPage() {
 
     const projectDiv = document.createElement('div'); 
     const projectList = document.createElement('ul');
-    const addProject = document.createElement('button');
+    const addProject = document.createElement('li');
 
     defaultList.append(inbox, today, week);
     projectList.append(addProject);
@@ -61,16 +61,16 @@ function loadPage() {
     document.body.append(content);
 
     // Text and HTML Content
-    logoText.innerText = "TooDoo"
+    logoText.innerText = 'TooDoo';
 
-    inbox.innerText = "Inbox";
-    today.innerText = "Today";
-    week.innerText = "This Week";
+    inbox.innerHTML = '<i class="fa-solid fa-inbox"></i> Inbox';
+    today.innerHTML = '<i class="fa-solid fa-arrow-down"></i> Today';
+    week.innerHTML = '<i class="fa-solid fa-calendar-days"></i> This Week';
 
-    projectDiv.innerHTML = "Projects" + projectDiv.innerHTML;
-    addProject.innerText = "Add Project";
+    projectDiv.innerHTML = '<i class="fa-solid fa-diagram-project"></i> Projects' + projectDiv.innerHTML;
+    addProject.innerHTML = '<i class="fa-solid fa-plus"></i> Add Project';
 
-    taskHeader.innerText = "Inbox";
+    taskHeader.innerText = 'Inbox';
 }
 
 export default loadPage;
