@@ -70,5 +70,11 @@ ul {
 
 .main {
     background-color: var(--light-grey);
+    color: var(--black);
     padding: 1rem 25%;
+}
+
+.main h2 {
+    text-align: center;
+    font-size: 40px;
 }
