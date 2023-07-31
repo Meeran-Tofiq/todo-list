@@ -1,3 +1,4 @@
+import "./all.min";
 import tasksFactory from "./tasks";
 import loadPage from "./load_page";
 import './styles.css';
