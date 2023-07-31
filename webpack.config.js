@@ -11,6 +11,9 @@ module.exports = {
         clean: true,
     },
     devtool: 'inline-source-map',
+    devServer: {
+        static: './dist',
+    },
     plguins: [
         new HtmlWebpackPlugin({
             title: 'ToDo List',
@@ -29,4 +32,7 @@ module.exports = {
             },
         ],
     },
+    optimization: {
+        runtimeChunk: 'single',
+    }
 };
