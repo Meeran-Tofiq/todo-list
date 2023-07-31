@@ -63,7 +63,14 @@ function loadPage() {
     // Text and HTML Content
     logoText.innerText = "TooDoo"
 
+    inbox.innerText = "Inbox";
+    today.innerText = "Today";
+    week.innerText = "This Week";
 
+    projectDiv.innerHTML = "Projects" + projectDiv.innerHTML;
+    addProject.innerText = "Add Project";
+
+    taskHeader.innerText = "Inbox";
 }
 
 export default loadPage;
