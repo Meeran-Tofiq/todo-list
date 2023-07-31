@@ -62,6 +62,10 @@ span svg {
     justify-self: center;
 }
 
+ul {
+    list-style: none;
+}
+
 /* Main */
 
 .main {
