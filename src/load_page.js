@@ -13,6 +13,9 @@ function loadPage() {
 
     // Header Children
     const logo = document.createElement('div');
+    const logoText = document.createElement('h1');
+
+    logo.append(logoText);
 
     // attributes
     logo.classList.add('logo');
@@ -56,6 +59,11 @@ function loadPage() {
 
     content.append(header, sidebar, main);
     document.body.append(content);
+
+    // Text and HTML Content
+    logoText.innerText = "TooDoo"
+
+
 }
 
 export default loadPage;
