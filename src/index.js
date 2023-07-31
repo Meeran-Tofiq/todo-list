@@ -1,5 +1,6 @@
 import tasksFactory from "./tasks";
 import loadPage from "./load_page";
+import './styles.css';
 
 console.log('development');
 
