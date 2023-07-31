@@ -35,7 +35,7 @@ function loadPage() {
     projectDiv.append(projectList);
 
     // attributes
-    defaultList.classList.add('deafult-list');
+    defaultList.classList.add('default-list');
     inbox.setAttribute('id', 'inbox');
     today.setAttribute('id', 'today');
     week.setAttribute('id', 'week');
