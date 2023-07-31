@@ -22,20 +22,20 @@ function tasksFactory(obj = {}) {
         return priority;
     };
     
-    const setTitle = function(t) {
-        this.title = t;
+    const setTitle = (t) => {
+        title = t;
     };
     
-    const setDescription = function(d) {
-        this.description = d;
+    const setDescription = (d) => {
+        description = d;
     };
     
-    const setDueDate = function(dd) {
-        this.dueDate = dd;
+    const setDueDate = (dd) => {
+        dueDate = dd;
     };
     
-    const setPriority = function(p) {
-        this.priority = p;
+    const setPriority = (p) => {
+        priority = p;
     }
     
     return Object.assign(obj, {
