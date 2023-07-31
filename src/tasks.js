@@ -2,7 +2,8 @@ function tasksFactory(obj = {}) {
     let title = '';
     let description = '';
     const today = new Date();
-    let dueDate = [today.getDay() + 1, today.getMonth, today.getFullYear];
+    let dueDate = new Date();
+    dueDate.setDate(today.getDate() + 1);
     let priority = 0;
     
     const setTitle = function(t) {
