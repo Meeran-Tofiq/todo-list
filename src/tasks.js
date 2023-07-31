@@ -31,3 +31,5 @@ function tasksFactory(obj = {}) {
         setPriority
     });
 }
+
+export default tasksFactory;
