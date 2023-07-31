@@ -1,0 +1,38 @@
+:root {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+.content {
+    display: grid;
+    grid-template: 1fr 6fr / 1fr 6fr;
+    height: 100%;
+}
+
+/* Header */
+header {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    background-color: green;
+}
+
+/* Sidebar */
+.sidebar {
+    grid-column: 1;
+    background-color: ivory;
+    color: grey;
+
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+}
+
+/* Main */
+
+.main {
+    background-color: rgb(242, 242, 223);
+    padding: 1rem 25%;
+}
