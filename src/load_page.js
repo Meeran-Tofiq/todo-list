@@ -56,7 +56,6 @@ function loadPage() {
 
     content.append(header, sidebar, main);
     document.body.append(content);
-    console.log("ASDFGHJKLKJHGFDSDFGHJKJHGFDSDFGHJK")
 }
 
 export default loadPage;
