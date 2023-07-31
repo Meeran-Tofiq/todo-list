@@ -14,7 +14,7 @@ module.exports = {
     devServer: {
         static: './dist',
     },
-    plguins: [
+    plugins: [
         new HtmlWebpackPlugin({
             title: 'ToDo List',
         }),
