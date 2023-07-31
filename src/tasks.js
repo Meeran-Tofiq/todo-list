@@ -5,6 +5,22 @@ function tasksFactory(obj = {}) {
     let dueDate = new Date();
     dueDate.setDate(today.getDate() + 1);
     let priority = 0;
+
+    const getTitle = () => {
+        return title;
+    };
+
+    const getDescription = () => {
+        return description;
+    };
+
+    const getDueDate = () => {
+        return dueDate;
+    };
+
+    const getPriority = () => {
+        return priority;
+    };
     
     const setTitle = function(t) {
         this.title = t;
@@ -22,10 +38,11 @@ function tasksFactory(obj = {}) {
         this.priority = p;
     }
     
-    return Object.assign(obj, {title, 
-        description,
-        dueDate,
-        priority,
+    return Object.assign(obj, {
+        getTitle, 
+        getDescription,
+        getDueDate,
+        getPriority,
         setTitle,
         setDescription,
         setDueDate,
