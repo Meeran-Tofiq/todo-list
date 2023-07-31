@@ -38,11 +38,28 @@ header .logo {
 /* Sidebar */
 .sidebar {
     grid-column: 1;
-    background-color: var(--black);
-    color: var(--cyan);
+    background-color: var(--dark-cyan);
+    color: var(--milky);
+    padding: 3rem 2rem;
+    font-size: larger;
 
     display: grid;
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: 1fr 5fr;
+    gap: 6rem;
+}
+
+.sidebar .default-list {
+    display: grid;
+}
+
+.sidebar span {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 1rem;
+}
+
+span svg {
+    justify-self: center;
 }
 
 /* Main */
