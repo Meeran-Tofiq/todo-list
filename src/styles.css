@@ -1,5 +1,14 @@
 :root {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    /* Color scheme taken from (https://visme.co/blog/website-color-schemes/)
+    Autho: Nayomi Chibana */
+    
+    --black: #17252A;
+    --cyan: #3AAFA9;
+    --dark-cyan: #2B7A78;
+    --light-grey: #DEF2F1;
+    --milky: #FEFFFF;
 }
 
 body {
