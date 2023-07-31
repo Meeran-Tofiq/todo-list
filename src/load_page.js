@@ -68,7 +68,7 @@ function loadPage() {
     week.innerHTML = '<i class="fa-solid fa-calendar-days"></i> This Week';
 
     projectDiv.innerHTML = '<i class="fa-solid fa-diagram-project"></i> Projects' + projectDiv.innerHTML;
-    addProject.innerHTML = '<i class="fa-solid fa-plus"></i> Add Project';
+    addProject.innerHTML = '<i class="fa-solid fa-plus"></i> New';
 
     taskHeader.innerText = 'Inbox';
 }
