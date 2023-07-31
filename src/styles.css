@@ -1,5 +1,14 @@
 :root {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    /* Color scheme taken from (https://visme.co/blog/website-color-schemes/)
+    Autho: Nayomi Chibana */
+    
+    --black: #17252A;
+    --cyan: #3AAFA9;
+    --dark-cyan: #2B7A78;
+    --light-grey: #DEF2F1;
+    --milky: #FEFFFF;
 }
 
 body {
@@ -17,11 +26,11 @@ body {
 header {
     grid-column: 1 / span 2;
     grid-row: 1;
-    background-color: green;
+    background-color: var(--black);
 }
 
 header .logo {
-    color: yellow;
+    color: var(--milky);
     padding: 1rem 2rem;
     font-size: x-large;
 }
@@ -29,16 +38,37 @@ header .logo {
 /* Sidebar */
 .sidebar {
     grid-column: 1;
-    background-color: ivory;
-    color: grey;
+    background-color: var(--dark-cyan);
+    color: var(--milky);
+    padding: 3rem 2rem;
+    font-size: larger;
 
     display: grid;
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: 1fr 5fr;
+    gap: 6rem;
+}
+
+.sidebar .default-list {
+    display: grid;
+}
+
+.sidebar span {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 1rem;
+}
+
+span svg {
+    justify-self: center;
+}
+
+ul {
+    list-style: none;
 }
 
 /* Main */
 
 .main {
-    background-color: rgb(242, 242, 223);
+    background-color: var(--light-grey);
     padding: 1rem 25%;
 }
