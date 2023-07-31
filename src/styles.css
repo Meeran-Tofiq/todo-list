@@ -20,6 +20,12 @@ header {
     background-color: green;
 }
 
+header .logo {
+    color: yellow;
+    padding: 1rem 2rem;
+    font-size: x-large;
+}
+
 /* Sidebar */
 .sidebar {
     grid-column: 1;
