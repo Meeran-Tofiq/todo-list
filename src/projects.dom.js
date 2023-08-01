@@ -13,8 +13,8 @@ function setupDefaultProjects() {
     let inbox, today, week;
 
     setupProject(inbox, 'Inbox', '#inbox');
-    setupProject(inbox, 'Today', '#today');
-    setupProject(inbox, 'This Week', '#week');
+    setupProject(today, 'Today', '#today');
+    setupProject(week, 'This Week', '#week');
 }
 
 function setupProject(proj, name, id) {
