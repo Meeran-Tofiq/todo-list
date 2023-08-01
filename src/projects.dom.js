@@ -56,10 +56,11 @@ function openAddProjectPopup(newProjButton) {
     projectsList.prepend(popup);
 
     addBtn.addEventListener('click', () => {
+        projectsList.firstChild.remove(); 
         const newProjID = nameBox.value.toLocaleLowerCase();
         const newProjElement = createNewProject(newProjID);
         projectsList.insertBefore(newProjElement, projectsList.lastChild);
-        const newProj = setupProject(nameBox.innerText, `#${newProjID}`);
+        const newProj = setupProject(nameBox.value, `#${newProjID}`);
     });
 
     cancelBtn.addEventListener('click', () => {
