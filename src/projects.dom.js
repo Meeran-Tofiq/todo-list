@@ -10,23 +10,19 @@ function setupDOMActiveProject() {
 }
 
 function setupDefaultProjects() {
-    const inbox = projectsFactory();
-    inbox.setName('Inbox');
-    const today = projectsFactory();
-    today.setName('Today');
-    const week = projectsFactory();
-    week.setName('This Week');
+    let inbox, today, week;
 
-    document.querySelector('#inbox').addEventListener('click', () => {
-        activeProject = inbox;
-    });
+    setupProject(inbox, 'Inbox', '#inbox');
+    setupProject(inbox, 'Today', '#today');
+    setupProject(inbox, 'This Week', '#week');
+}
 
-    document.querySelector('#today').addEventListener('click', () => {
-        activeProject = today;
-    });
+function setupProject(proj, name, id) {
+    proj = projectsFactory();
+    proj.setName(name);
 
-    document.querySelector('#week').addEventListener('click', () => {
-        activeProject = week;
+    document.querySelector(id).addEventListener('click', () => {
+        activeProject = proj;
     });
 }
 
