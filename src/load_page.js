@@ -47,8 +47,12 @@ function loadPage() {
     // Main children
     const taskDiv = document.createElement('div');
     const taskHeader = document.createElement('h2');
-    const taskList = document.createElement('div');
+    const taskList = document.createElement('ul');
+    const addTask = document.createElement('li');
 
+    addTask.innerHTML = '<i class="fa-solid fa-plus"></i> New';
+
+    taskList.append(addTask);
     taskDiv.append(taskHeader, taskList);
 
     // attributes
