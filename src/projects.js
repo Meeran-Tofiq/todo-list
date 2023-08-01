@@ -25,3 +25,5 @@ function projectsFactory(obj = {}) {
         addTask
     });
 }
+
+export default projectsFactory;
