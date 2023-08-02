@@ -1,5 +1,5 @@
 import { _allProjects, projectsFactory } from "./projects";
-import { _allTasks, tasksFactory } from "./tasks";
+import { tasksFactory } from "./tasks";
 import { createNewProjectElement } from "./projects.dom";
 import { showActiveProjectTasks } from "./tasks.dom";
 

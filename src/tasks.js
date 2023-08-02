@@ -1,5 +1,3 @@
-let _allTasks = [];
-
 function tasksFactory(obj = {},
     _title = '',
     _description = '',
@@ -60,4 +58,4 @@ function tasksFactory(obj = {},
     });
 }
 
-export {_allTasks, tasksFactory};
+export {tasksFactory};
