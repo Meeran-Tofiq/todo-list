@@ -9,6 +9,8 @@ import { loadProjects } from "./storage";
 loadPage();
 
 setupDefaultProjects();
+loadProjects();
+
 setupDOMActiveProject();
 setupProjectCreationButton();
 setupTaskCreationButton();

@@ -1,4 +1,5 @@
 import { activeProject } from "./projects.dom";
+import { storeProjects } from "./storage";
 import {tasksFactory} from "./tasks";
 import { format } from "date-fns";
 
@@ -35,6 +36,7 @@ function createNewTaskPopup() {
         const newTaskElement = createNewTaskElement(newTask);
         tasksList.insertBefore(newTaskElement, tasksList.lastChild);
         activeProject.addTask(newTask);
+        storeProjects();
     });
 
     cancelBtn.addEventListener('click', () => {

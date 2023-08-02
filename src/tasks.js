@@ -1,14 +1,20 @@
-import { storeTasks } from "./storage";
-
 let _allTasks = [];
 
-function tasksFactory(obj = {}) {
-    let title = '';
-    let description = '';
-    const today = new Date();
-    let dueDate = new Date();
-    dueDate.setDate(today.getDate() + 1);
-    let priority = 0;
+function tasksFactory(obj = {},
+    _title = '',
+    _description = '',
+    _dueDate = new Date(),
+    _priority = 0) {
+
+    let title = _title;
+    let description = _description;
+    let dueDate = _dueDate;
+    let priority = _priority;
+    
+    if (dueDate == new Date()) {
+        const today = new Date();
+        dueDate.setDate(today.getDate() + 1);
+    }
 
     const getTitle = () => {
         return title;
@@ -42,7 +48,7 @@ function tasksFactory(obj = {}) {
         priority = p;
     }
 
-    obj = Object.assign(obj, {
+    return Object.assign(obj, {
         getTitle, 
         getDescription,
         getDueDate,
@@ -52,11 +58,6 @@ function tasksFactory(obj = {}) {
         setDueDate,
         setPriority
     });
-
-    _allTasks.push(obj);
-    storeTasks();
-    
-    return obj;
 }
 
 export {_allTasks, tasksFactory};

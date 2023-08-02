@@ -1,4 +1,5 @@
 import {projectsFactory} from "./projects";
+import { storeProjects } from "./storage";
 
 let activeProject;
 
@@ -70,6 +71,7 @@ function openAddProjectPopup(newProjButton) {
 function createProject(name) {
     const proj = projectsFactory();
     proj.setName(name);
+    storeProjects(proj);
     return proj;
 }
 

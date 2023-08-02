@@ -1,10 +1,8 @@
-import { storeProjects } from "./storage";
-
 let _allProjects = [];
 
-function projectsFactory(obj = {}) {
-    let name = 'New Project';
-    const tasks = [];
+function projectsFactory(obj = {}, _name = 'New Project', _tasks = []) {
+    let name = _name;
+    const tasks = _tasks;
 
     const getName = () => {
         return name;
@@ -38,7 +36,6 @@ function projectsFactory(obj = {}) {
     });
 
     _allProjects.push(obj);
-    storeProjects();
     
     return obj;
 }
