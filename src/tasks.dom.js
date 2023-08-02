@@ -62,11 +62,18 @@ function createNewTaskElement(task) {
 
     const nameSpan = document.createElement('span');
     const dateSpan = document.createElement('span');
+    const deleteTask = document.createElement('button');
 
     nameSpan.innerText = task.getTitle();
     dateSpan.innerText = format(task.getDueDate(), 'dd-MM-yyyy');
+    deleteTask.innerHTML = '<i class="fa-solid fa-trash"></i>';
+
+    deleteTask.addEventListener('click', () => {
+        activeProject.removeTask(task);
+        newTaskElement.remove();
+    })
     
-    newTaskElement.append(nameSpan, dateSpan);
+    newTaskElement.append(nameSpan, dateSpan, deleteTask);
 
     return newTaskElement;
 }
