@@ -1,3 +1,5 @@
+const _allTasks = [];
+
 function tasksFactory(obj = {}) {
     let title = '';
     let description = '';
@@ -37,8 +39,8 @@ function tasksFactory(obj = {}) {
     const setPriority = (p) => {
         priority = p;
     }
-    
-    return Object.assign(obj, {
+
+    obj = Object.assign(obj, {
         getTitle, 
         getDescription,
         getDueDate,
@@ -48,6 +50,10 @@ function tasksFactory(obj = {}) {
         setDueDate,
         setPriority
     });
+
+    _allTasks.push(obj);
+    
+    return obj;
 }
 
 export default tasksFactory;

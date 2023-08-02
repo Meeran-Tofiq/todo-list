@@ -1,3 +1,5 @@
+let _allProjects = [];
+
 function projectsFactory(obj = {}) {
     let name = 'New Project';
     const tasks = [];
@@ -25,13 +27,17 @@ function projectsFactory(obj = {}) {
         }
     }
 
-    return Object.assign(obj, {
+    obj = Object.assign(obj, {
         getName,
         getTasks,
         setName,
         addTask,
         removeTask
     });
+
+    _allProjects.push(obj);
+    
+    return obj;
 }
 
 export default projectsFactory;
