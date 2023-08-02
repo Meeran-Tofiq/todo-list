@@ -61,6 +61,7 @@ function loadPage() {
     // attributes
     taskDiv.classList.add('tasks-container');
     taskList.classList.add('task-list');
+    addTask.setAttribute('id', 'add-task');
 
     // Appending children
     header.append(logo);
