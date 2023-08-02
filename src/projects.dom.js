@@ -1,5 +1,6 @@
-import {projectsFactory} from "./projects";
+import {_allProjects, projectsFactory} from "./projects";
 import { storeProjects } from "./storage";
+import { showActiveProjectTasks } from "./tasks.dom";
 
 let activeProject;
 
@@ -77,13 +78,25 @@ function createProject(name) {
 
 function createNewProjectElement(proj) {
     const newProjElement = document.createElement('li');
+    const removeProj = document.createElement('span');
     newProjElement.setAttribute('id', proj.getName().toLowerCase());
     newProjElement.innerHTML = `<i class="fa-solid fa-list-check"></i> ${proj.getName()}`;
+    removeProj.innerHTML = '<i class="fa-solid fa-trash"></i>';
+
+    removeProj.addEventListener('click', () => {
+        newProjElement.remove();
+        let index = _allProjects.indexOf(proj);
+        if (index > -1) {
+            _allProjects.splice(index, 1);
+        }
+        storeProjects();
+    });
 
     newProjElement.addEventListener('click', () => {
         activeProject = proj;
     });
 
+    newProjElement.append(removeProj);
     return newProjElement;
 }
 
