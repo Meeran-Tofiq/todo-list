@@ -1,6 +1,6 @@
 :root {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
+    
     /* Color scheme taken from (https://visme.co/blog/website-color-schemes/)
     Autho: Nayomi Chibana */
     
@@ -42,7 +42,7 @@ header .logo {
     color: var(--milky);
     padding: 3rem 2rem;
     font-size: larger;
-
+    
     display: grid;
     grid-template-rows: 1fr 5fr;
     gap: 6rem;
@@ -101,4 +101,51 @@ li {
 .main h2 {
     text-align: center;
     font-size: 40px;
+}
+
+.main li {
+    display: grid;
+    grid-template-columns: 30px 50% 1fr 30px;
+}
+
+.main input[type="checkbox"] {
+    appearance: none;
+    background-color: var(--light-grey);
+    margin: 0;
+    font: inherit;
+    color: var(--dark-cyan);
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid var(--dark-cyan);
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    
+    display: grid;
+    place-content: center;
+}
+
+/* Following animation was made by Stephanie Eckles
+In the article: https://moderncss.dev/pure-css-custom-checkbox-style/ */
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--dark-cyan);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+#add-task-popup {
+    display: block;
+}
+
+#add-task-popup form {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 70% auto 30px 30px;
 }
