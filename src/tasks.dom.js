@@ -72,6 +72,7 @@ function createNewTaskElement(task) {
     deleteTask.addEventListener('click', () => {
         activeProject.removeTask(task);
         newTaskElement.remove();
+        storeProjects();
     })
     
     form.append(checkbox);
