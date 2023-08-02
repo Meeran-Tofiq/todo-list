@@ -71,8 +71,7 @@ function openAddProjectPopup(newProjButton) {
 function createNewProject(id) {
     const newProjElement = document.createElement('li');
     newProjElement.setAttribute('id', id);
-    newProjElement.innerHTML = '<i class="fa-solid fa-list-check"></i> '
-    newProjElement.innerText += id;
+    newProjElement.innerHTML = `<i class="fa-solid fa-list-check"></i> ${id}`;
 
     return newProjElement;
 }
