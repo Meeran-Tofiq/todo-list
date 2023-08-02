@@ -1,4 +1,6 @@
-const _allTasks = [];
+import { storeTasks } from "./storage";
+
+let _allTasks = [];
 
 function tasksFactory(obj = {}) {
     let title = '';
@@ -52,6 +54,7 @@ function tasksFactory(obj = {}) {
     });
 
     _allTasks.push(obj);
+    storeTasks();
     
     return obj;
 }

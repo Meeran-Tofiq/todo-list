@@ -1,3 +1,5 @@
+import { storeProjects } from "./storage";
+
 let _allProjects = [];
 
 function projectsFactory(obj = {}) {
@@ -36,6 +38,7 @@ function projectsFactory(obj = {}) {
     });
 
     _allProjects.push(obj);
+    storeProjects();
     
     return obj;
 }

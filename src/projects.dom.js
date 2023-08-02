@@ -85,4 +85,4 @@ function createNewProjectElement(proj) {
     return newProjElement;
 }
 
-export {activeProject, setupDOMActiveProject, setupDefaultProjects, setupProjectCreationButton};
+export {activeProject, setupDOMActiveProject, setupDefaultProjects, setupProjectCreationButton, createNewProjectElement};

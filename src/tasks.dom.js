@@ -97,4 +97,4 @@ function showActiveProjectTasks() {
     }
 }
 
-export default setupTaskCreationButton;
+export {setupTaskCreationButton, showActiveProjectTasks};
