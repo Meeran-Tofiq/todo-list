@@ -35,7 +35,7 @@ function createNewTaskPopup() {
         const newTaskName = nameBox.value;
         const newTaskDate = dateBox.value;
 
-        const newTask = setupTask(nameBox.value, newTaskDate, `#${newTaskID}`);
+        const newTask = setupTask(newTaskName, newTaskDate, `#${newTaskID}`);
         const newTaskElement = createNewTaskElement(newTask);
         tasksList.insertBefore(newTaskElement, tasksList.lastChild);
         activeProject.addTask(newTask);
@@ -60,10 +60,13 @@ function createNewTaskElement(task) {
     const newTaskElement = document.createElement('li');
     newTaskElement.setAttribute('id', task.getTitle().toLowerCase());
 
+    const form = document.createElement('form');
+    const checkbox = document.createElement('input');
     const nameSpan = document.createElement('span');
     const dateSpan = document.createElement('span');
     const deleteTask = document.createElement('button');
 
+    checkbox.setAttribute('type', 'checkbox');
     nameSpan.innerText = task.getTitle();
     dateSpan.innerText = format(task.getDueDate(), 'dd-MM-yyyy');
     deleteTask.innerHTML = '<i class="fa-solid fa-trash"></i>';
@@ -73,7 +76,8 @@ function createNewTaskElement(task) {
         newTaskElement.remove();
     })
     
-    newTaskElement.append(nameSpan, dateSpan, deleteTask);
+    form.append(checkbox);
+    newTaskElement.append(form, nameSpan, dateSpan, deleteTask);
 
     return newTaskElement;
 }
