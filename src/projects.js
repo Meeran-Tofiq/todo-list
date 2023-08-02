@@ -40,4 +40,4 @@ function projectsFactory(obj = {}) {
     return obj;
 }
 
-export default projectsFactory;
+export  { _allProjects, projectsFactory };

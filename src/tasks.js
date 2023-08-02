@@ -56,4 +56,4 @@ function tasksFactory(obj = {}) {
     return obj;
 }
 
-export default tasksFactory;
+export {_allTasks, tasksFactory};

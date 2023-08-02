@@ -1,5 +1,5 @@
 import { activeProject } from "./projects.dom";
-import tasksFactory from "./tasks";
+import {tasksFactory} from "./tasks";
 import { format } from "date-fns";
 
 function setupTaskCreationButton() {

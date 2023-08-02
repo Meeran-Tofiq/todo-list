@@ -1,4 +1,4 @@
-import projectsFactory from "./projects";
+import {projectsFactory} from "./projects";
 
 let activeProject;
 
