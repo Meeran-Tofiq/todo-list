@@ -35,9 +35,9 @@ function createNewTaskPopup() {
         const newTaskName = nameBox.value;
         const newTaskDate = dateBox.value;
 
-        const newTaskElement = createNewTaskElement(newTaskName, newTaskID, newTaskDate);
+        const newTask = setupTask(nameBox.value, newTaskDate, `#${newTaskID}`);
+        const newTaskElement = createNewTaskElement(newTask);
         tasksList.insertBefore(newTaskElement, tasksList.lastChild);
-        const newTask = setupTask(nameBox.value, `#${newTaskID}`);
         activeProject.addTask(newTask);
     });
 
@@ -46,32 +46,29 @@ function createNewTaskPopup() {
     });
 }
 
-function createNewTaskElement(name, id, date) {
+function setupTask(title, date, id) {
+    const task = tasksFactory();
+    task.setTitle(title);
+    if(date !== '') {
+        task.setDueDate(new Date(date));
+    }
+
+    return task;
+}
+
+function createNewTaskElement(task) {
     const newTaskElement = document.createElement('li');
-    newTaskElement.setAttribute('id', id);
-    let d = new Date();
-    d.setDate(d.getDate() + 1);
+    newTaskElement.setAttribute('id', task.getTitle().toLowerCase());
 
     const nameSpan = document.createElement('span');
     const dateSpan = document.createElement('span');
 
-    nameSpan.innerText = name;
-    dateSpan.innerText = (date === '' ? format(d, 'dd-MM-yyyy') : date);
+    nameSpan.innerText = task.getTitle();
+    dateSpan.innerText = format(task.getDueDate(), 'dd-MM-yyyy');
     
     newTaskElement.append(nameSpan, dateSpan);
 
     return newTaskElement;
-}
-
-function setupTask(title, id) {
-    const task = tasksFactory();
-    task.setTitle(title);
-
-    document.querySelector(id).addEventListener('click', () => {
-        console.log('Buhahahahahaha');
-    });
-
-    return task;
 }
 
 function showActiveProjectTasks() {
@@ -88,7 +85,7 @@ function showActiveProjectTasks() {
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
         
-        const newTaskElement = createNewTaskElement(task.getTitle(), task.getTitle().toLowerCase());
+        const newTaskElement = createNewTaskElement(task);
         tasksList.insertBefore(newTaskElement, tasksList.lastChild);
     }
 }
