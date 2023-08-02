@@ -3,6 +3,7 @@ import tasksFactory from "./tasks";
 
 function setupTaskCreationButton() {
     document.querySelector('#add-task').addEventListener('click', createNewTaskPopup);
+    document.querySelector('.sidebar').addEventListener('click', showActiveProjectTasks);
 }
 
 function createNewTaskPopup() {
@@ -26,11 +27,12 @@ function createNewTaskPopup() {
 
     addBtn.addEventListener('click', () => {
         tasksList.firstChild.remove(); 
-        const newTaskID = nameBox.value.toLocaleLowerCase();
+        const newTaskID = nameBox.value.toLowerCase();
         const newTaskName = nameBox.value;
         const newTaskElement = createNewTask(newTaskName, newTaskID);
         tasksList.insertBefore(newTaskElement, tasksList.lastChild);
         const newTask = setupTask(nameBox.value, `#${newTaskID}`);
+        activeProject.addTask(newTask);
     });
 
     cancelBtn.addEventListener('click', () => {
@@ -38,7 +40,7 @@ function createNewTaskPopup() {
     });
 }
 
-function createNewTask(id, name) {
+function createNewTask(name, id) {
     const newTaskElement = document.createElement('li');
     newTaskElement.setAttribute('id', id);
     newTaskElement.innerHTML = `<i class="fa-solid fa-list-check"></i> ${name}`;
@@ -55,6 +57,25 @@ function setupTask(title, id) {
     });
 
     return task;
+}
+
+function showActiveProjectTasks() {
+    const tasksList = document.querySelector('.tasks-container').lastChild;
+
+    Array.from(tasksList.childNodes).forEach(element => {
+        if(element.id !== 'add-task') {
+            element.remove();
+        }
+    });
+    
+    const tasks = activeProject.getTasks();
+
+    for (let i = 0; i < tasks.length; i++) {
+        const task = tasks[i];
+        
+        const newTaskElement = createNewTask(task.getTitle(), task.getTitle().toLowerCase());
+        tasksList.insertBefore(newTaskElement, tasksList.lastChild);
+    }
 }
 
 export default setupTaskCreationButton;
