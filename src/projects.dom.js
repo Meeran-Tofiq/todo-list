@@ -10,14 +10,14 @@ function setupDOMActiveProject() {
 }
 
 function setupDefaultProjects() {
-    const inbox = setupProject('Inbox', '#inbox');
-    const today = setupProject('Today', '#today');
-    const week = setupProject('This Week', '#week');
+    const inbox = setupDefaultProject('Inbox', '#inbox');
+    const today = setupDefaultProject('Today', '#today');
+    const week = setupDefaultProject('This Week', '#week');
 
     activeProject = inbox;
 }
 
-function setupProject(name, id) {
+function setupDefaultProject(name, id) {
     const proj = projectsFactory();
     proj.setName(name);
 
@@ -57,11 +57,9 @@ function openAddProjectPopup(newProjButton) {
 
     addBtn.addEventListener('click', () => {
         projectsList.firstChild.remove(); 
-        const newProjID = nameBox.value.toLowerCase();
-        const newProjName = nameBox.value;
-        const newProjElement = createNewProject(newProjName, newProjID);
+        const newProj = createProject(nameBox.value);
+        const newProjElement = createNewProjectElement(newProj);
         projectsList.insertBefore(newProjElement, projectsList.lastChild);
-        const newProj = setupProject(nameBox.value, `#${newProjID}`);
     });
 
     cancelBtn.addEventListener('click', () => {
@@ -69,10 +67,20 @@ function openAddProjectPopup(newProjButton) {
     });
 }
 
-function createNewProject(name, id) {
+function createProject(name) {
+    const proj = projectsFactory();
+    proj.setName(name);
+    return proj;
+}
+
+function createNewProjectElement(proj) {
     const newProjElement = document.createElement('li');
-    newProjElement.setAttribute('id', id);
-    newProjElement.innerHTML = `<i class="fa-solid fa-list-check"></i> ${name}`;
+    newProjElement.setAttribute('id', proj.getName().toLowerCase());
+    newProjElement.innerHTML = `<i class="fa-solid fa-list-check"></i> ${proj.getName()}`;
+
+    newProjElement.addEventListener('click', () => {
+        activeProject = proj;
+    });
 
     return newProjElement;
 }
