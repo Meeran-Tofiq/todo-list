@@ -1,5 +1,6 @@
 import { activeProject } from "./projects.dom";
 import tasksFactory from "./tasks";
+import { format } from "date-fns";
 
 function setupTaskCreationButton() {
     document.querySelector('#add-task').addEventListener('click', createNewTaskPopup);
@@ -12,15 +13,18 @@ function createNewTaskPopup() {
     popup.setAttribute('id', 'add-task-popup');
     const form = document.createElement('form');
     const nameBox = document.createElement('input');
+    const dateBox = document.createElement('input');
 
     const addBtn = document.createElement('button');
     const cancelBtn = document.createElement('button');
+    dateBox.setAttribute('type', 'date');
     addBtn.setAttribute('type', 'button');
     cancelBtn.setAttribute('type', 'button');
     addBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
     cancelBtn.innerHTML = '<i class="fa-solid fa-x"></i>';
 
     form.append(nameBox);
+    form.append(dateBox);
     form.append(addBtn, cancelBtn);
     popup.append(form);
     tasksList.prepend(popup);
@@ -29,7 +33,9 @@ function createNewTaskPopup() {
         tasksList.firstChild.remove(); 
         const newTaskID = nameBox.value.toLowerCase();
         const newTaskName = nameBox.value;
-        const newTaskElement = createNewTask(newTaskName, newTaskID);
+        const newTaskDate = dateBox.value;
+
+        const newTaskElement = createNewTaskElement(newTaskName, newTaskID, newTaskDate);
         tasksList.insertBefore(newTaskElement, tasksList.lastChild);
         const newTask = setupTask(nameBox.value, `#${newTaskID}`);
         activeProject.addTask(newTask);
@@ -40,10 +46,19 @@ function createNewTaskPopup() {
     });
 }
 
-function createNewTask(name, id) {
+function createNewTaskElement(name, id, date) {
     const newTaskElement = document.createElement('li');
     newTaskElement.setAttribute('id', id);
-    newTaskElement.innerHTML = `<i class="fa-solid fa-list-check"></i> ${name}`;
+    let d = new Date();
+    d.setDate(d.getDate() + 1);
+
+    const nameSpan = document.createElement('span');
+    const dateSpan = document.createElement('span');
+
+    nameSpan.innerText = name;
+    dateSpan.innerText = (date === '' ? format(d, 'dd-MM-yyyy') : date);
+    
+    newTaskElement.append(nameSpan, dateSpan);
 
     return newTaskElement;
 }
@@ -67,13 +82,13 @@ function showActiveProjectTasks() {
             element.remove();
         }
     });
-    
+
     const tasks = activeProject.getTasks();
 
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
         
-        const newTaskElement = createNewTask(task.getTitle(), task.getTitle().toLowerCase());
+        const newTaskElement = createNewTaskElement(task.getTitle(), task.getTitle().toLowerCase());
         tasksList.insertBefore(newTaskElement, tasksList.lastChild);
     }
 }
