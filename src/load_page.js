@@ -65,7 +65,7 @@ function loadPage() {
     addTask.setAttribute('id', 'add-task');
 
     // Footer
-    footer.innerHTML = '<p>Copyright © Meeran Tofiq</p> <i class="fa-brands fa-github></i>';
+    footer.innerHTML = '<p>Copyright © Meeran Tofiq</p> <a href="https://github.com/Meeran-Tofiq/"><i class="fa-brands fa-github"></i></a>';
 
     // Appending children
     header.append(logo);
