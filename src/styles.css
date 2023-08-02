@@ -18,7 +18,7 @@ body {
 
 .content {
     display: grid;
-    grid-template: 1fr 6fr / 1fr 6fr;
+    grid-template: 1fr 6fr 40px / 1fr 6fr;
     height: 100%;
 }
 

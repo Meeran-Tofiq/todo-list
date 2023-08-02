@@ -6,6 +6,7 @@ function loadPage() {
     const header = document.createElement('header');
     const sidebar = document.createElement('div');
     const main = document.createElement('div');
+    const footer = document.createElement('footer');
 
     // attributes
     sidebar.classList.add('sidebar');
@@ -63,12 +64,15 @@ function loadPage() {
     taskList.classList.add('task-list');
     addTask.setAttribute('id', 'add-task');
 
+    // Footer
+    footer.innerHTML = '<p>Copyright © Meeran Tofiq</p> <i class="fa-brands fa-github></i>';
+
     // Appending children
     header.append(logo);
     sidebar.append(defaultList, projectDiv);
     main.append(taskDiv);
 
-    content.append(header, sidebar, main);
+    content.append(header, sidebar, main, footer);
     document.body.append(content);
 
     // Text and HTML Content
