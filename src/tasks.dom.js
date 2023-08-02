@@ -27,15 +27,11 @@ function createNewTaskPopup() {
     form.append(dateBox);
     form.append(addBtn, cancelBtn);
     popup.append(form);
-    tasksList.prepend(popup);
+    tasksList.insertBefore(popup, tasksList.lastChild);
 
     addBtn.addEventListener('click', () => {
-        tasksList.firstChild.remove(); 
-        const newTaskID = nameBox.value.toLowerCase();
-        const newTaskName = nameBox.value;
-        const newTaskDate = dateBox.value;
-
-        const newTask = setupTask(newTaskName, newTaskDate, `#${newTaskID}`);
+        popup.remove();
+        const newTask = setupTask(nameBox.value, dateBox.value);
         const newTaskElement = createNewTaskElement(newTask);
         tasksList.insertBefore(newTaskElement, tasksList.lastChild);
         activeProject.addTask(newTask);
@@ -46,7 +42,7 @@ function createNewTaskPopup() {
     });
 }
 
-function setupTask(title, date, id) {
+function setupTask(title, date) {
     const task = tasksFactory();
     task.setTitle(title);
     if(date !== '') {

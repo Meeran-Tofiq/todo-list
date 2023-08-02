@@ -53,10 +53,10 @@ function openAddProjectPopup(newProjButton) {
     form.append(nameBox);
     form.append(addBtn, cancelBtn);
     popup.append(form);
-    projectsList.prepend(popup);
+    projectsList.insertBefore(popup, projectsList.lastChild);
 
     addBtn.addEventListener('click', () => {
-        projectsList.firstChild.remove(); 
+        popup.remove();
         const newProj = createProject(nameBox.value);
         const newProjElement = createNewProjectElement(newProj);
         projectsList.insertBefore(newProjElement, projectsList.lastChild);
