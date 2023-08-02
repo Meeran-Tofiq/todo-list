@@ -153,3 +153,19 @@ input[type="checkbox"]:checked::before {
     display: grid;
     grid-template-columns: 70% auto 30px 30px;
 }
+
+/* Footer */
+footer {
+    grid-column: 1 / span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    background-color: var(--black);
+    color: var(--cyan);
+}
+
+footer a {
+    color: var(--cyan);
+}
