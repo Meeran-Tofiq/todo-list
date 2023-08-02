@@ -58,7 +58,8 @@ function openAddProjectPopup(newProjButton) {
     addBtn.addEventListener('click', () => {
         projectsList.firstChild.remove(); 
         const newProjID = nameBox.value.toLocaleLowerCase();
-        const newProjElement = createNewProject(newProjID);
+        const newProjName = nameBox.value;
+        const newProjElement = createNewProject(newProjName, newProjID);
         projectsList.insertBefore(newProjElement, projectsList.lastChild);
         const newProj = setupProject(nameBox.value, `#${newProjID}`);
     });
@@ -68,10 +69,10 @@ function openAddProjectPopup(newProjButton) {
     });
 }
 
-function createNewProject(id) {
+function createNewProject(name, id) {
     const newProjElement = document.createElement('li');
     newProjElement.setAttribute('id', id);
-    newProjElement.innerHTML = `<i class="fa-solid fa-list-check"></i> ${id}`;
+    newProjElement.innerHTML = `<i class="fa-solid fa-list-check"></i> ${name}`;
 
     return newProjElement;
 }
